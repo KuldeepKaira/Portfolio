@@ -1,5 +1,11 @@
 @import "../../global.scss";
 
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
 li {
   font-size: 14px;
   margin-right: 50px;

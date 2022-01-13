@@ -1,5 +1,12 @@
 @import "../../global.scss";
 
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+
 .testimonials {
   background-color: white;
   display: flex;

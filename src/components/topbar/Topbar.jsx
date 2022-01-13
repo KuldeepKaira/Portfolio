@@ -1,8 +1,23 @@
 import "./topbar.scss";
 import { BsFillPersonFill } from "react-icons/bs";
 import { GrMail } from "react-icons/gr";
+import { useState } from "react";
 
 export default function Topbar({ menuOpen, setMenuOpen }) {
+  const [copyState, setCopyState] = useState(false);
+
+  const copyToClipboard = () => {
+    var textField = document.createElement("textarea");
+    textField.innerText = "+91-9149017357";
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand("copy");
+    textField.remove();
+    console.log("Phone number Copied");
+    setCopyState(true);
+    setTimeout(() => setCopyState(false), 2000);
+  };
+
   return (
     <div className={"topbar " + (menuOpen && "active")}>
       <div className="wrapper">
@@ -12,11 +27,14 @@ export default function Topbar({ menuOpen, setMenuOpen }) {
           </a>
           <div className="itemContainer">
             <BsFillPersonFill className="icon" />
-            <span>+91-9149017357</span>
+            <span onClick={copyToClipboard}>+91-9149017357</span>
+            {copyState && <p>Phone number copied!!</p>}
           </div>
           <div className="itemContainer">
             <GrMail className="icon" />
-            <span>kkaira218@gmail.com</span>
+            <a href="mailto: kkaira218@gmail.com" className="mail">
+              kkaira218@gmail.com
+            </a>
           </div>
         </div>
         <div className="right">

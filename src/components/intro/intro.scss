@@ -22,6 +22,12 @@
       align-items: flex-end;
       justify-content: center;
       float: right;
+      transition: all 1s ease;
+      overflow: hidden;
+
+      &:hover {
+        transform: scale(0.9);
+      }
 
       @include mobile {
         align-items: flex-start;
@@ -29,6 +35,11 @@
 
       img {
         height: 90%;
+        transition: all 1s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
 
         @include mobile {
           height: 50%;

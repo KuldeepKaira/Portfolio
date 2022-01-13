@@ -18,7 +18,7 @@ function App() {
     <div className="app">
       <Topbar menuOpen={menuOpen} setMenuOpen={menuOpenHandler} />
       <Menu menuOpen={menuOpen} setMenuOpen={menuOpenHandler} />
-      <div className="sections">
+      <div className="sections" onClick={menuOpen === true && menuOpenHandler}>
         <Intro />
         <Portfolio />
         <Works />

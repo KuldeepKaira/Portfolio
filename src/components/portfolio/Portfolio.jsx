@@ -2,7 +2,7 @@ import PortfolioList from "../portfolioList/PortfolioList";
 import { useState, useEffect } from "react";
 import "./portfolio.scss";
 import {
-  featuredPortfolio,
+  worksPortfolio,
   webPortfolio,
   mobilePortfolio,
   designPortfolio,
@@ -10,11 +10,11 @@ import {
 } from "../../data.js";
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState("featured");
-  const [data, setData] = useState(featuredPortfolio);
+  const [selected, setSelected] = useState("works");
+  const [data, setData] = useState(worksPortfolio);
 
   const list = [
-    { id: "featured", title: "Featured" },
+    { id: "works", title: "Works" },
     { id: "web", title: "Web App" },
     { id: "mobile", title: "Mobile" },
     { id: "design", title: "Design" },
@@ -23,8 +23,8 @@ export default function Portfolio() {
 
   useEffect(() => {
     switch (selected) {
-      case "featured":
-        setData(featuredPortfolio);
+      case "works":
+        setData(worksPortfolio);
         break;
       case "web":
         setData(webPortfolio);
@@ -39,7 +39,7 @@ export default function Portfolio() {
         setData(contentPortfolio);
         break;
       default:
-        setData(featuredPortfolio);
+        setData(worksPortfolio);
     }
   }, [selected]);
 
@@ -59,10 +59,12 @@ export default function Portfolio() {
       </ul>
       <div className="container">
         {data.map((d) => (
-          <div className="item">
-            <img src={d.img} alt="" />
-            <h3> {d.title}</h3>
-          </div>
+          <a href="https://poemcollection-kuldeep.netlify.app/" target="_blank">
+            <div key={d.id} className="item">
+              <img src={d.img} alt="" />
+              <h3> {d.title}</h3>
+            </div>
+          </a>
         ))}
       </div>
     </div>
